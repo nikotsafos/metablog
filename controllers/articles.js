@@ -6,8 +6,7 @@ router.get('/', function(req, res){
   db.article.findAll().then(function(allArticles){
     res.render('articles/index', {articles: allArticles});
   }).catch(function(err){
-    console.log(err);
-    res.send('bad things happened')
+    res.render('error')
   })
   });
 
@@ -16,7 +15,7 @@ router.get('/new', function(req, res){
     res.render('articles/new', {authors: allAuthors});
   }).catch(function(err){
     console.log(err);
-    res.send('oops1')
+    res.render('error')
   })
 });
 
@@ -28,7 +27,7 @@ router.get('/:id', function(req, res) {
     res.render('articles/show', {article: foundArticle});
   }).catch(function(err){
     console.log(err);
-    res.send('oops2')
+    res.render('error')
   })
 });
 
@@ -39,7 +38,7 @@ router.post('/', function(req, res) {
       res.redirect('/articles/' + createdArticle.id);
   }).catch(function(err){
     console.log(err);
-    res.send('oops3')
+    res.render('error')
   })
 } else {
   res.redirect('/articles/new')

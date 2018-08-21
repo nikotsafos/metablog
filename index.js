@@ -22,5 +22,9 @@ app.get('/', function(req, res){
   res.render('home');
 });
 
+app.get('*', function(req, res){
+  res.render('error');
+});
+
 // hey listen
 app.listen(3000);

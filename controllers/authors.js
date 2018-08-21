@@ -7,7 +7,7 @@ router.get('/', function(req, res){
     res.render('authors/index', {authors: allAuthors});
   }).catch(function(err){
     console.log(err);
-    res.send('bad things happened')
+    res.render('error')
   })
 });
 
@@ -22,7 +22,7 @@ router.get('/:id', function(req, res) {
   }).then(function(foundAuthor){
     res.render('authors/show', {author: foundAuthor});
   }).catch(function(err){
-    res.send('can\'t find that author');
+    res.render('error')
   })
 });
 
@@ -31,8 +31,7 @@ router.post('/', function(req, res) {
   db.author.create(req.body).then(function(createdAuthor){
     res.redirect('/authors/' + createdAuthor.id);
   }).catch(function(err) {
-    console.log(err);
-    res.send('derp');
+    res.render('error')
   });
 });
 
