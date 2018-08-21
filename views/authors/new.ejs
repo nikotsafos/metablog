@@ -2,8 +2,16 @@
 
 <form action="/authors" method="POST" role="form">
   <div class="form-group">
-    <label for="title" class="hidden">Name</label>
-    <input type="text" class="form-control" id="author-name" placeholder="Author" name="author">
+    <label for="name">Name:</label>
+    <input type="text" class="form-control" id="author-name" placeholder="Author" name="name">
+  </div>
+  <div class="form-group">
+    <label for="name">Profile Image:</label>
+    <input type="url" class="form-control" id="author-url" placeholder="Image URL" name="image">
+  </div>
+  <div class="form-group">
+    <label for="name">Bio:</label>
+    <textarea class="form-control" id="author-bio" placeholder="Bio" name="bio"></textarea>
   </div>
 
 
